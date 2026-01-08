@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.16",
+    "@upstash/redis": "^1.36.0",
     "nanoid": "^5.1.6",
     "next": "16.1.1",
     "react": "19.2.3",

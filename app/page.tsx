@@ -2,6 +2,10 @@
 import Image from "next/image";
 import {useEffect, useState} from "react";
 import {nanoid} from "nanoid";
+import { useRouter } from "next/navigation"
+import { createRoom } from "@/lib/client"
+
+//useState creates persistent memory for your UI function and re-runs it whenever you change that memory.
 
 const ANIMALS = ["wolf","lion","elephant","tiger"]
 
@@ -15,6 +19,9 @@ const generateUsername = () => {
 export default function Home() {
 
   const [username,setUsername] = useState("");
+  const [creating, setCreating] = useState(false)
+  const router = useRouter()
+
 
   useEffect(()=>{
     const main = () => {
@@ -53,7 +60,20 @@ export default function Home() {
           </div>
          </div>
 
-         <button className="w-full bg-zinc-100 text-black p-3 test-sm font-bold hover:bg-zinc-50 hover:text-black transition-colors mt-2 cursor-pointer disabled:opacity-50">
+         <button 
+           disabled={creating}
+            onClick={async () => {
+            try {
+              setCreating(true)
+              const room = await createRoom()
+              router.push(`/room/${room.roomId}`)
+                } 
+                catch {
+                setCreating(false)
+                alert("Failed to create room")
+  }
+            }}
+           className="w-full bg-zinc-100 text-black p-3 test-sm font-bold hover:bg-zinc-50 hover:text-black transition-colors mt-2 cursor-pointer disabled:opacity-50">
           CREATE SECURE ROOM
          </button>
        </div>
