@@ -407,7 +407,7 @@ const Page = () => {
                     <span className="text-[10px] text-zinc-500 uppercase hidden sm:block">Room ID</span>
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-green-500 truncate text-sm sm:text-base">{roomId}</span>
-                        <button onClick={copyLink} className="text-[9px] sm:text-[10px] bg-zinc-800 hover:bg-zinc-700 px-1.5 sm:px-2 py-0.5 rounded text-zinc-400 shrink-0 transition-colors uppercase">{copyStatus === "COPY" ? "ID" : "OK"}</button>
+                        <button onClick={copyLink} className="text-[9px] sm:text-[10px] bg-zinc-800 hover:bg-zinc-700 px-1.5 sm:px-2 py-0.5 rounded text-zinc-400 shrink-0 transition-colors uppercase">{copyStatus}</button>
                     </div>
                 </div>
 
@@ -418,9 +418,9 @@ const Page = () => {
                     <span className="text-[10px] sm:text-xs text-zinc-500 capitalize">{connectionStatus}</span>
                 </div>
 
-                <div className="h-8 w-px bg-zinc-800 shrink-0 hidden xs:block" />
+                <div className="h-8 w-px bg-zinc-800 shrink-0" />
 
-                <div className="flex-col hidden xs:flex shrink-0">
+                <div className="flex-col flex shrink-0">
                     <span className="text-[10px] text-zinc-500 uppercase hidden sm:block">Self-Destruct</span>
                     <span className={`text-xs sm:text-sm font-bold flex items-center gap-2 ${timeRemaining !== null && timeRemaining < 60 ? "text-red-500" : "text-amber-500"}`}>
                         {timeRemaining !== null ? formatTimeRemaining(timeRemaining) : "--:--"}
