@@ -394,7 +394,7 @@ const Page = () => {
                 )}
 
                 <div className="text-center pt-4">
-                    <p className="text-[10px] sm:text-xs text-zinc-800 uppercase tracking-[0.3em] font-medium">Privacy-First Ephemeral Messaging</p>
+                    <p className="text-[10px] sm:text-xs text-zinc-800 uppercase tracking-[0.3em] font-medium">End to End Encrypted Chat</p>
                 </div>
             </div>
         </main>
