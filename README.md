@@ -15,7 +15,7 @@ graph TD
 ```
 
 ### Technical Stack
-- **Frontend**: Next.js 15 (App Router), Tailwind CSS
+- **Frontend**: Next.js 16, Tailwind CSS
 - **Real-Time**: Socket.IO
 - **Storage**: Upstash Redis (Ephemeral metadata with TTL)
 - **Security**: Web Crypto API (AES-GCM 256-bit)

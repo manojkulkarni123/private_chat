@@ -401,28 +401,28 @@ const Page = () => {
     }
 
     return <main className="flex flex-col h-screen max-h-screen overflow-hidden">
-        <header className="border-b border-zinc-800 p-4 flex items-center justify-between bg-zinc-900/30">
-            <div className="flex items-center gap-4">
-                <div className="flex flex-col">
-                    <span className="text-xs text-zinc-500 uppercase">Room ID</span>
+        <header className="border-b border-zinc-800 p-3 sm:p-4 flex items-center justify-between bg-zinc-900/30">
+            <div className="flex items-center gap-2 sm:gap-4 overflow-hidden">
+                <div className="flex flex-col min-w-0">
+                    <span className="text-[10px] text-zinc-500 uppercase hidden sm:block">Room ID</span>
                     <div className="flex items-center gap-2">
-                        <span className="font-bold text-green-500">{roomId}</span>
-                        <button onClick={copyLink} className="text-[10px] bg-zinc-800 hover:bg-zinc-700 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-400 transition-colors">{copyStatus}</button>
+                        <span className="font-bold text-green-500 truncate text-sm sm:text-base">{roomId}</span>
+                        <button onClick={copyLink} className="text-[9px] sm:text-[10px] bg-zinc-800 hover:bg-zinc-700 px-1.5 sm:px-2 py-0.5 rounded text-zinc-400 shrink-0 transition-colors uppercase">{copyStatus === "COPY" ? "ID" : "OK"}</button>
                     </div>
                 </div>
 
-                <div className="h-8 w-px bg-zinc-800" />
+                <div className="h-8 w-px bg-zinc-800 shrink-0" />
 
-                <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${connectionStatus === 'connected' ? 'bg-green-500' : connectionStatus === 'connecting' ? 'bg-yellow-500 animate-pulse' : 'bg-red-500'}`} />
-                    <span className="text-xs text-zinc-500">{connectionStatus}</span>
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                    <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${connectionStatus === 'connected' ? 'bg-green-500' : connectionStatus === 'connecting' ? 'bg-yellow-500 animate-pulse' : 'bg-red-500'}`} />
+                    <span className="text-[10px] sm:text-xs text-zinc-500 capitalize">{connectionStatus}</span>
                 </div>
 
-                <div className="h-8 w-px bg-zinc-800" />
+                <div className="h-8 w-px bg-zinc-800 shrink-0 hidden xs:block" />
 
-                <div className="flex flex-col">
-                    <span className="text-xs text-zinc-500 uppercase">Self-Destruct</span>
-                    <span className={`text-sm font-bold flex items-center gap-2 ${timeRemaining !== null && timeRemaining < 60 ? "text-red-500" : "text-amber-500"}`}>
+                <div className="flex-col hidden xs:flex shrink-0">
+                    <span className="text-[10px] text-zinc-500 uppercase hidden sm:block">Self-Destruct</span>
+                    <span className={`text-xs sm:text-sm font-bold flex items-center gap-2 ${timeRemaining !== null && timeRemaining < 60 ? "text-red-500" : "text-amber-500"}`}>
                         {timeRemaining !== null ? formatTimeRemaining(timeRemaining) : "--:--"}
                     </span>
                 </div>
@@ -430,11 +430,12 @@ const Page = () => {
 
             <button
                 onClick={destroyRoom}
-                className="text-xs bg-zinc-800 hover:bg-red-600 px-3 py-1.5 
+                className="text-[10px] sm:text-xs bg-zinc-800 hover:bg-red-600 px-2 sm:px-3 py-1.5 
                 rounded text-zinc-400 hover:text-white font-bold transition-all group
-                flex items-center gap-2 disabled:opacity-50">
+                flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <span className="group-hover:animate-pulse">💣</span>
-                DESTROY NOW
+                <span className="hidden xs:inline">DESTROY</span>
+                <span className="inline xs:hidden">BURN</span>
             </button>
         </header>
 
@@ -461,10 +462,10 @@ const Page = () => {
             <div ref={messagesEndRef} />
         </div>
 
-        <div className="p-4 border-t border-zinc-800 bg-zinc-900/30">
-            <div className="flex gap-4">
+        <div className="p-3 sm:p-4 border-t border-zinc-800 bg-zinc-900/30">
+            <div className="flex gap-2 sm:gap-4">
                 <div className="flex-1 relative group">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-green-500 animate-pulse ">{">"}</span>
+                    <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-green-500 animate-pulse text-sm sm:text-base ">{">"}</span>
                     <input
                         ref={inputRef}
                         autoFocus
@@ -475,19 +476,19 @@ const Page = () => {
                                 sendMessage()
                             }
                         }}
-                        placeholder={encryptionKey ? "Type encrypted message..." : isPasswordRequired ? "Room locked..." : "Initializing E2EE..."}
+                        placeholder={encryptionKey ? "Encrypted message..." : "Wait..."}
                         disabled={!encryptionKey}
                         onChange={(e) => setInput(e.target.value)}
                         className="w-full bg-black border border-zinc-800 focus:border-zinc-700 focus:outline-none
-                        transition-colors text-zinc-100 placeholder:text-zinc-700 py-3 pl-8 pr-4 text-sm disabled:opacity-50"
+                        transition-colors text-zinc-100 placeholder:text-zinc-700 py-2.5 sm:py-3 pl-7 sm:pl-8 pr-3 sm:pr-4 text-sm disabled:opacity-50"
                     />
                 </div>
 
                 <button
                     onClick={sendMessage}
                     disabled={!input.trim() || !encryptionKey}
-                    className="bg-zinc-800 text-zinc-400 px-6 text-sm font-bold 
-                    hover:text-zinc-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+                    className="bg-zinc-100 text-black px-4 sm:px-6 text-xs sm:text-sm font-bold 
+                    hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shrink-0">
                     SEND
                 </button>
             </div>

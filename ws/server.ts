@@ -27,7 +27,7 @@ const io = new Server(httpServer, {
 })
 
 console.log('🎯 Socket.IO server initialized, waiting for connections...')
-console.log('📍 CORS origin:', process.env.CLIENT_URL || 'http://localhost:3001')
+console.log('📍 CORS origin:', process.env.CLIENT_URL || 'http://localhost:3000')
 
 // Listen for new client connections
 io.on('connection', async (socket) => {

@@ -67,3 +67,7 @@ export async function decryptMessage(encryptedBase64: string, key: CryptoKey): P
     const dec = new TextDecoder()
     return dec.decode(decrypted)
 }
+
+//Both users type the same password. The browser slowly turns that password into a strong secret key using PBKDF2.
+// That key encrypts each message using AES-GCM, producing unreadable bytes plus a random IV. The bytes are
+// Base64-encoded so they can travel over Socket.IO. The receiver reverses the process and sees the original message

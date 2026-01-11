@@ -39,7 +39,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold tracking-tight text-green-500">
           {">"}private chat
         </h1>
-        <p className="text-zinc-500 text-sm">A private, self-destructing chat room. </p>
+        <p className="text-zinc-500 text-sm">A private fully encrypted, self-destructing chat room. </p>
       </div>
 
       <div className="border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md">
@@ -114,6 +114,15 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <footer className="mt-12 text-center space-y-2 opacity-80 hover:opacity-100 transition-opacity duration-500">
+        <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-500">
+          Made with <span className="text-green-500">💚</span> by <a href="https://github.com/manojkulkarni123" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:underline">manoj kulkarni</a>
+        </p>
+        <p className="text-[9px] text-zinc-600 opacity-80 font-bold">
+          Like this project? <a href="https://github.com/manojkulkarni123/private_chat" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 underline decoration-zinc-800 underline-offset-4 transition-colors">Star it on GitHub</a>
+        </p>
+      </footer>
     </div>
   </main>
 }
