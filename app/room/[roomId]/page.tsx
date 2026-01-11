@@ -320,16 +320,16 @@ const Page = () => {
                 <div className="text-center space-y-3">
                     <div className="text-4xl text-green-500 font-mono animate-pulse">{authState === 'initializing' ? "---" : "🔐"}</div>
                     <div className="space-y-1">
-                        <h2 className="text-xl font-black text-white uppercase tracking-tighter">
+                        <h2 className="text-2xl font-black text-white uppercase tracking-tighter">
                             {authState === 'initializing' ? "Initializing..." : "Secure Entry"}
                         </h2>
-                        <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Room: {roomId}</p>
+                        <p className="text-xs sm:text-sm text-zinc-500 uppercase tracking-widest font-mono">Room: {roomId}</p>
                     </div>
                 </div>
 
                 {authState === 'initializing' ? (
                     <div className="text-center py-10">
-                        <div className="text-[10px] text-zinc-600 uppercase tracking-[0.5em] animate-pulse">Establishing Secure Tunnel...</div>
+                        <div className="text-xs sm:text-sm text-zinc-400 uppercase tracking-[0.3em] animate-pulse font-mono">Establishing Secure Tunnel...</div>
                     </div>
                 ) : (
                     <div className="border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md space-y-6">
@@ -394,7 +394,7 @@ const Page = () => {
                 )}
 
                 <div className="text-center pt-4">
-                    <p className="text-[9px] text-zinc-800 uppercase tracking-[0.3em]">Privacy-First Ephemeral Messaging</p>
+                    <p className="text-[10px] sm:text-xs text-zinc-800 uppercase tracking-[0.3em] font-medium">Privacy-First Ephemeral Messaging</p>
                 </div>
             </div>
         </main>
