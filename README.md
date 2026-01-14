@@ -2,7 +2,7 @@
 
 A high-performance, ephemeral messaging platform featuring **End-to-End Encryption (E2EE)** and a **Zero-Open-Port** stealth architecture.
 
-## 🛰️ Architecture Preview
+## Architecture Preview
 The system operates on a hybrid cloud model designed for maximum privacy and infrastructure security.
 
 ```mermaid
