@@ -1,4 +1,4 @@
-# >Private Chat 💣🔐
+# >Private Chat
 
 A high-performance, ephemeral messaging platform featuring **End-to-End Encryption (E2EE)** and a **Zero-Open-Port** stealth architecture.
 
@@ -14,14 +14,14 @@ graph TD
     F[Client B] <-->|E2EE Socket.IO| B
 ```
 
-## 🛠️ Technical Stack
+## Tech Stack
 - **Frontend**: Next.js (App Router), Tailwind CSS
 - **Real-Time**: Socket.IO (WebSockets)
 - **Infrastructure**: AWS EC2 + Cloudflare Tunnels (Named Tunnels)
 - **Storage**: Upstash Redis (Ephemeral metadata with auto-TTL)
 - **Security**: Web Crypto API (**AES-GCM 256-bit**)
 
-## 🛡️ Core Security Features
+## Core Security Features
 
 ### 1. End-to-End Encryption (E2EE)
 Messages are encrypted client-side using **AES-GCM**. 
@@ -37,7 +37,7 @@ The backend leverages **Cloudflare Tunnels**.
 - **Auto-Destruction**: Upstash Redis TTL ensures all room metadata and states are hard-deleted after 10 minutes.
 - **No Persistence**: Conversation history exists only in volatile client-side memory. Refreshing or leaving the room incinerates the session.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 20+
@@ -66,10 +66,9 @@ npm run dev
 npm run ws
 ```
 
-## 🏗️ Deployment Flow
+## Deployment Flow
 1. **Frontend**: Deploy to **Vercel**.
 2. **Backend**: Host `ws/server.ts` on **AWS EC2** using PM2.
 3. **Tunneling**: Install `cloudflared` as a service on EC2 and route a subdomain (e.g., `api.domain.com`) to `localhost:8080`.
 
 ---
-*Built for developers who value privacy and modern networking patterns.* 💣🔐
